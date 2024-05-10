@@ -498,7 +498,10 @@ class Image extends AbstractRenderer
     protected function imageFilledPolygonWrapper($image, array $points, $numPoints, $color, $filled)
     {
         if (! $filled) {
-            return imagepolygon($this->resource, $points, $numPoints, $color);
+            if (PHP_VERSION_ID < 80100) {
+                return imagepolygon($this->resource, $points, $numPoints, $color);
+            }
+            return imagepolygon($this->resource, $points, $color);
         }
 
         if (PHP_VERSION_ID < 80100) {
