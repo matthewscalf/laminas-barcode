@@ -39,7 +39,6 @@ use function strlen;
 
 use const E_WARNING;
 use const PHP_MAJOR_VERSION;
-use const PHP_VERSION_ID;
 
 /**
  * Class for rendering the barcode as image
@@ -397,7 +396,7 @@ class Image extends AbstractRenderer
             $color & 0x0000FF
         );
 
-        $this->imageFilledPolygonWrapper($this->resource, $newPoints, 4, $allocatedColor, $filled);
+        $this->imageFilledPolygonWrapper($this->resource, $newPoints, $allocatedColor, $filled);
     }
 
     /**
@@ -490,22 +489,14 @@ class Image extends AbstractRenderer
     /**
      * @param GdImage|resource $image
      * @param array $points
-     * @param int $numPoints
      * @param int $color
      * @param bool $filled
      * @return bool
      */
-    protected function imageFilledPolygonWrapper($image, array $points, $numPoints, $color, $filled)
+    protected function imageFilledPolygonWrapper($image, array $points, $color, $filled)
     {
         if (! $filled) {
-            if (PHP_VERSION_ID < 80100) {
-                return imagepolygon($this->resource, $points, $numPoints, $color);
-            }
             return imagepolygon($this->resource, $points, $color);
-        }
-
-        if (PHP_VERSION_ID < 80100) {
-            return imagefilledpolygon($image, $points, $numPoints, $color);
         }
 
         return imagefilledpolygon($image, $points, $color);
