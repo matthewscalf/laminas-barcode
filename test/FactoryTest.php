@@ -55,12 +55,10 @@ class FactoryTest extends TestCase
         $r = new ReflectionClass(Barcode\Barcode::class);
 
         $rObjectPlugins = $r->getProperty('objectPlugins');
-        $rObjectPlugins->setAccessible(true);
-        $rObjectPlugins->setValue(null);
+        $rObjectPlugins->setValue($r, null);
 
         $rRendererPlugins = $r->getProperty('rendererPlugins');
-        $rRendererPlugins->setAccessible(true);
-        $rRendererPlugins->setValue(null);
+        $rRendererPlugins->setValue($r, null);
     }
 
     public function tearDown(): void
