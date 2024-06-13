@@ -2,27 +2,24 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 2.14.0 - TBD
+## 2.14.0 - 2024-06-13
 
-### Added
 
-- Nothing.
+-----
 
-### Changed
+### Release Notes for [2.14.0](https://github.com/laminas/laminas-barcode/milestone/14)
 
-- Nothing.
+Feature release (minor)
 
-### Deprecated
+### 2.14.0
 
-- Nothing.
+- Total issues resolved: **0**
+- Total pull requests resolved: **1**
+- Total contributors: **1**
 
-### Removed
+#### Bug
 
-- Nothing.
-
-### Fixed
-
-- Nothing.
+ - [24: FIX `num&#95;points` parameter deprecation in `imagepolygon()`](https://github.com/laminas/laminas-barcode/pull/24) thanks to @ls-youssef-jlidat
 
 ## 2.13.0 - 2023-12-05
 
